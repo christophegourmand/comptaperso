@@ -15,8 +15,18 @@ return new class extends Migration
     {
         Schema::create('preferences', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('preference_category_id')->unsigned()->nullable();
+            $table->string('name')->unique();
+            $table->integer('position')->nullable();
             $table->timestamps();
         });
+
+        Schema::table('preferences', function (Blueprint $table) {
+            $table->foreign('preference_category_id')->references('id')->on('preference_categories')
+                ->cascadeOnUpdate()
+                ->nullOnDelete();
+        });
+
     }
 
     /**

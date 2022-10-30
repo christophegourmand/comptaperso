@@ -4,9 +4,8 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\Preference;
 
-class PreferenceSeeder extends Seeder
+class RoleSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,9 +14,6 @@ class PreferenceSeeder extends Seeder
      */
     public function run()
     {
-        // preference_category_id
-        // name
-        // position
-        // Preference::factory()->create()
+        //
     }
 }

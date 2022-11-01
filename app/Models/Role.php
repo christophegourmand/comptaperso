@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Role extends Model
 {
     use HasFactory;
+
+    /**
+    * Get the users having that role.
+    */
+    public function users()
+    {
+        return $this->belongToMany(User::class, 'role_user'); // arg2 is the pivot table
+    }
 }

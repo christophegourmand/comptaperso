@@ -21,7 +21,6 @@ return new class extends Migration
             $table->string('name');
             $table->string('reference')->nullable();
             $table->timestamps();
-
         });
 
         Schema::table('bank_accounts', function (Blueprint $table) {

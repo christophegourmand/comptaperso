@@ -41,4 +41,29 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+    * Get the roles of that user.
+    */
+    public function roles()
+    {
+        return $this->hasMany(Role::class , 'role_user'); // arg2 is the pivot table
+    }
+
+    /**
+    * Get the bank-accounts of that user.
+    */
+    public function bankAccounts()
+    {
+        return $this->hasMany(BankAccount::class , 'bank_account_user'); // arg2 is the pivot table
+    }
+
+
+    /**
+    * Get the preferences customized by this user.
+    */
+    public function preferences()
+    {
+        return $this->hasMany(Preference::class , 'preference_user'); // arg2 is the pivot table
+    }
 }

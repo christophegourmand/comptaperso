@@ -12,6 +12,22 @@
                     You're logged in!
                 </div>
             </div>
+
+            <!--
+            @auth
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="p-6 bg-white border-b border-gray-200">
+                    You are admin !
+                </div>
+            </div>
+            @endauth
+            -->
         </div>
+    </div>
+
+    <!-- BUTTONS TO ACCESS TO VARIOUS ACTIONS -->
+    <div class="sm:px-6 lg:px-8">
+        <!-- Button : Add new accounts -->
+        <a class=" box-border rounded border-none bg-blue-600 p-3 text-center text-white hover:bg-blue-700" href="/form-add-bank-account">Add new Bank Account</a>
     </div>
 </x-app-layout>

@@ -18,8 +18,11 @@ return new class extends Migration
             $table->id();
             $table->bigInteger('user_id')->unsigned();
             $table->bigInteger('account_type_id')->unsigned()->nullable();
-            $table->string('name');
-            $table->string('reference')->nullable();
+            $table->string('name', 50);
+            $table->string('reference', 100)->nullable();
+            $table->text('description')->nullable();
+            $table->string('icon_path')->nullable();
+            $table->string('icon_color_hexa', 7)->nullable();
             $table->timestamps();
         });
 

@@ -16,7 +16,8 @@ return new class extends Migration
         Schema::create('account_types', function (Blueprint $table) {
             $table->engine = 'InnoDB'; // Trying to fix error 1215.
             $table->id();
-            $table->string('name')->unique();
+            $table->string('name', 30)->unique();
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }

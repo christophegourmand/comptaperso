@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('preference_categories', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->unique();
+            $table->string('name', 100)->unique();
             $table->integer('position')->nullable();
             $table->timestamps();
         });

@@ -28,6 +28,16 @@
     <!-- BUTTONS TO ACCESS TO VARIOUS ACTIONS -->
     <div class="sm:px-6 lg:px-8">
         <!-- Button : Add new accounts -->
-        <a class=" box-border rounded border-none bg-blue-600 p-3 text-center text-white hover:bg-blue-700" href="/form-add-bank-account">Add new Bank Account</a>
+        <!-- <a class=" box-border rounded border-none bg-blue-600 p-3 text-center text-white hover:bg-blue-700" href="/form-add-bank-account">Add new Bank Account</a> -->
+
+        <x-button color="blue" text="Add new Bank Account" link="/form-add-bank-account"/>
+        <x-button color="yellow" text="Cliquer ici" link="/click"/>
+        <x-button color="orange" text="Cliquer ici" link="/click"/>
+        <x-button color="red" text="Cliquer ici" link="/click"/>
+        <x-button color="green" text="Cliquer ici" link="/click"/>
+        <x-button color="teal" text="Cliquer ici" link="/click"/>
+        <x-button color="cyan" text="Cliquer ici" link="/click"/>
+        <x-button color="black" text="Cliquer ici" link="/click"/>
+        <x-button color="gray" text="Cliquer ici" link="/click"/>
     </div>
 </x-app-layout>

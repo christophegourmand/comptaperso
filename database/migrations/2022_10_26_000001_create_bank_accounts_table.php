@@ -21,6 +21,8 @@ return new class extends Migration
             $table->string('name', 50);
             $table->string('reference', 100)->nullable();
             $table->text('description')->nullable();
+            $table->double('balance', 24, 8);
+            $table->date('balance_date');
             $table->string('icon_path')->nullable();
             $table->string('icon_color_hexa', 7)->nullable();
             $table->timestamps();

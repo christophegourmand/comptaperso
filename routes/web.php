@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BankAccountController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,3 +39,6 @@ Route::get(
         return view('essais'); //TODO : plus tard renvoyer vers un controller
     }
 )->middleware(['auth', 'verified'])->name('essais');
+
+
+Route::resource('bankAccounts', BankAccountController::class);

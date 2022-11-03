@@ -30,3 +30,11 @@ Route::get(
         return view('bankAccount/formAddBankAccount');
     }
 );
+
+Route::get(
+    '/essais',
+    function()
+    {
+        return view('essais'); //TODO : plus tard renvoyer vers un controller
+    }
+)->middleware(['auth', 'verified'])->name('essais');

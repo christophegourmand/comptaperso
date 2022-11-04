@@ -1,5 +1,6 @@
 @php
     //dump($accountTypes);
+    $val_test_input_text = 'toto';
 @endphp
 
 <x-app-layout>
@@ -7,6 +8,10 @@
         <h1 class="text-xl text-slate-600">Ajout d'un nouveau compte bancaire</h1>
 
         <form method="POST" action="/form-add-bank-account-post">
+
+            {{-- my component form/input-text.blade.php --}}
+            <x-form.input-text :value="$val_test_input_text"/>
+
             <!-- account_type_id -->
             <div class="flex flex-col mt-6">
                 <label for="bank_account_type" class="mb-1.5">Type de compte</label>

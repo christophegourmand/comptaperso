@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BankAccountController;
+use App\Http\Controllers\OrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,24 +15,28 @@ use App\Http\Controllers\BankAccountController;
 |
 */
 
+// SECTION - PUBLIC URIS =====================
 Route::get('/', function () {
     return view('welcome');
 });
 
+// SECTION - URIS FOR AUTHENTICATED USERS =====================
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 require __DIR__.'/auth.php';
 
+//--- BANK ACCOUNT
+// Route::get(
+//     'form-add-bank-account',
+//     function(){
+//         return view('bankAccount/formAddBankAccount');
+//     }
+// );
+Route::resource('bankAccounts', BankAccountController::class);
 
-Route::get(
-    'form-add-bank-account',
-    function(){
-        return view('bankAccount/formAddBankAccount');
-    }
-);
-
+// SECTION - URIS FOR TESTS AND DEBUG =====================
 Route::get(
     '/essais',
     function()
@@ -41,4 +46,3 @@ Route::get(
 )->middleware(['auth', 'verified'])->name('essais');
 
 
-Route::resource('bankAccounts', BankAccountController::class);

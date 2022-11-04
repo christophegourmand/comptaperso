@@ -1,3 +1,1 @@
-<div>
-    <!-- The only way to do great work is to love what you do. - Steve Jobs -->
-</div>
+<input type="text" id="" class="" placeholder="input-text.blade.php">

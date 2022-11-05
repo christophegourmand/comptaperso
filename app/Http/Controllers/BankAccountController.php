@@ -26,7 +26,7 @@ class BankAccountController extends Controller
 	 */
 	public function create()
 	{
-        $previousFilled_accountTypeId = 1;
+        $previousFilled_accountTypeId = 5; // you must use type `int`
         $previousFilled_name = "";
         $previousFilled_reference = "";
         $previousFilled_balance = 0;
@@ -52,7 +52,7 @@ class BankAccountController extends Controller
                 'previousFilled_balance' => $previousFilled_balance,
                 'previousFilled_date' => $previousFilled_date,
                 'accountTypeNames' => $accountTypeNames,
-                'accountTypeIds' => $accountTypeIds,
+                'accountTypeIds' => $accountTypeIds
 			]
 		);
 	}

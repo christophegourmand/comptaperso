@@ -1,10 +1,15 @@
 
-@props(['listToDisplay' , 'listForValue'])
+{{-- @aware(['valueOfPreviousSelectedElement' => '5']) --}}
+@props(['id','name','listToDisplay' , 'listForValue' , 'valueOfPreviousSelectedElement' => ''])
 
 <select {{ $attributes->merge(['class'=>'rounded-md border-slate-400 focus:ring focus:ring-cyan-400/30']) }}>
     @if ( count($listToDisplay) === count($listForValue) )
         @for ($i=0 ; $i < count($listToDisplay) ; $i++)
-            <option value="{{ $listForValue[$i] }}">{{ $listToDisplay[$i] }}</option>
+            @if (!empty($valueOfPreviousSelectedElement) && $valueOfPreviousSelectedElement === $listForValue[$i])
+                <option selected value="{{ $listForValue[$i] }}">{{ $listToDisplay[$i] }}</option>
+            @else
+                <option value="{{ $listForValue[$i] }}">{{ $listToDisplay[$i] }}</option>
+            @endif
         @endfor
     @endif
 </select>

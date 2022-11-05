@@ -15,6 +15,7 @@
                 <x-form.label for="bank_account_name">Nom du compte</x-form.label>
                 <x-form.input-text id="bank_account_name" name="bank_account_name" :value="$previousFilled_name"/>
             </div>
+            <x-form.combo-input-text id="bank_account_name2" inlabel="Nom du compte2" :value="$previousFilled_name"/>
             <!-- reference -->
             <div class="flex flex-col mt-6">
                 <x-form.label for="bank_account_reference">Référence</x-form.label>

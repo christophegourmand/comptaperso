@@ -1,8 +1,9 @@
+@auth
 <x-app-layout>
 	<div class="py-5 px-12 flex flex-col justify-start items-center">
 		<h1 class="text-xl text-slate-600">Ajout d'un nouveau compte bancaire</h1>
 
-		<form method="POST" action="/form-add-bank-account-post">
+		<form method="POST" action="/bankAccounts">
 
 			<!-- account_type_id -->
             <x-form.combo-select-options
@@ -12,10 +13,11 @@
 			:listToDisplay="$accountTypeNames"
 			:listForValue="$accountTypeIds"
             :valueOfPreviousSelectedElement="$previousFilled_accountTypeId"
+            required
 			/>
 
 			<!-- name -->
-			<x-form.combo-input-text id="bank_account_name" inlabel="Nom du compte" :value="$previousFilled_name" comment=""/>
+			<x-form.combo-input-text id="bank_account_name" inlabel="Nom du compte" :value="$previousFilled_name" comment="" required/>
 
 			<!-- reference -->
 			<x-form.combo-input-text
@@ -45,3 +47,4 @@
 		</form>
 	<div>
 </x-app-layout>
+@endauth

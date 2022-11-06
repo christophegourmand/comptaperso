@@ -5,6 +5,7 @@
         </h2>
     </x-slot>
 
+    {{--
     <div class="py-12 drop-shadow-xl">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
@@ -24,24 +25,61 @@
             -->
         </div>
     </div>
+    --}}
 
-    <!-- BUTTONS TO ACCESS TO VARIOUS ACTIONS -->
-    <div class="sm:px-6 lg:px-8">
-        <!-- Button : Add new accounts -->
-        <!-- <a class=" box-border rounded border-none bg-blue-600 p-3 text-center text-white hover:bg-blue-700" href="/form-add-bank-account">Add new Bank Account</a> -->
+    <section id="widget_container" class="p-2 my-3 flex flex-row justify-center gap-3 items-start flex-wrap">
+        <x-widget.card id="widget_bank_accounts" title="Comptes bancaires" class="grow">
+            <ul class="divide-y">
+                @foreach ($bankAccounts as $bankAccount)
+                    {{--
+                        create component with params:
+                        - icon
+                        - color
+                        - name
+                        - amount
+                        - description
+                    --}}
+                    <li class="py-2 flex flex-row justify-between items-center">
+                        <div class="flex flex-row justify-start gap-2" style="color: {{$bankAccount->icon_color_hexa}};">
+                            <div><span class="material-symbols-outlined">{{$bankAccount->icon_path}}</span></div>
+                            <div class="">
+                                <p class="text-lg">{{$bankAccount->name}}</p>
+                                {{-- <p class="text-slate-500 text-sm"><em>{{$bankAccount->reference}}</em></p> --}}
+                                <p class="text-slate-500 text-sm"><em>{{$bankAccount->description}}</em></p>
+                            </div>
+                        </div>
+                        <span class="text-[{{$bankAccount->icon_color_hexa}}]">{{$bankAccount->balanceFormatted()}}</span>
+                    </li>
+                @endforeach
+            </ul>
+        </x-widget.card>
 
+        <x-widget.card id="widget_last_operations" title="Dernières opérations" class="grow">
+            <p>here</p>
+            <p>we</p>
+            <p>will</p>
+            <p>have</p>
+            <p>a</p>
+            <p>lot</p>
+            <p>of</p>
+            <p>things</p>
+        </x-widget.card>
+
+        <x-widget.card id="widget_last_operations" title="Consommation du mois par catégorie" class="grow">
+            <p>here</p>
+            <p>a</p>
+            <p>bit</p>
+            <p>less</p>
+        </x-widget.card>
+
+        <x-widget.card id="widget_last_operations" title="Prochaines opérations récurrentes" class="grow">
+        </x-widget.card>
+
+        <x-widget.card id="widget_last_operations" title="Prévisionnel" class="grow">
+        </x-widget.card>
+    </section>
+
+    <section class="sm:px-6 lg:px-8 flex flex-row justify-center">
         <x-button color="blue" text="Ajouter un compte bancaire" link="/bankAccounts/create"/>
-        <!-- <x-button color="yellow" text="Cliquer ici" link="/click"/> -->
-        <!-- <x-button color="orange" text="Cliquer ici" link="/click"/> -->
-        <!-- <x-button color="red" text="Cliquer ici" link="/click"/> -->
-        <!-- <x-button color="green" text="Cliquer ici" link="/click"/> -->
-        <!-- <x-button color="teal" text="Cliquer ici" link="/click"/> -->
-        <!-- <x-button color="cyan" text="Cliquer ici" link="/click"/> -->
-        <!-- <x-button color="black" text="Cliquer ici" link="/click"/> -->
-        <!-- <x-button color="gray" text="Cliquer ici" link="/click"/> -->
-    </div>
-
-    <x-widget.card id="widget_bank_accounts" title="Comptes bancaires">
-        <p>ici mes comptes</p>
-    </x-widget.card>
+    </section>
 </x-app-layout>

@@ -91,4 +91,16 @@ class BankAccount extends Model
 		return $this->belongsToMany(User::class , 'bank_account_user'); // arg2 is the pivot table
 	}
 
+    public function balanceFormatted()
+    {
+        $decimalSeparator = ',';
+        $thousandSeparator = ' ';
+        $localCurrancySymbol = '€';
+
+        $balanceFormatted = number_format($this->balance , 2 , $decimalSeparator , $thousandSeparator);
+        $balanceFormatted .= ' ' . $localCurrancySymbol;
+
+        return $balanceFormatted;
+    }
+
 }

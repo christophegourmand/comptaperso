@@ -38,6 +38,7 @@ class BankAccountController extends Controller
 	public function create()
 	{
 		//--- verify if user is connected
+            // NOTE: this might be useless as the access to this route is thru the middleware who check if you are authenticated.
 		if ( Auth::check())
 		{
 			// SECTION: prepare datas for the view : here datas of previously filled values (temporary)

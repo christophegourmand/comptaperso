@@ -2,7 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BankAccountController;
-use App\Http\Controllers\OrderController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\OrderController; // TODO : Remove this controller is useless (maybe it came with template)
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,9 +25,7 @@ Route::get('/', function () {
 // SECTION - URIs FOR AUTHENTICATED USERS =====================
 require __DIR__.'/auth.php';
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 //NOTE: 'auth' and 'verified' are keys who point to real middleware (see: App/Http/Kernel.php)
 
 

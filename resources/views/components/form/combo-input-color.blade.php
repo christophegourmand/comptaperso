@@ -10,7 +10,7 @@
         <small class="italic text-cyan-600">{{$textIfRequired}}</small>
     </x-form.label>
 
-    <x-form.input-number id="{{$id}}" name="{{$id}}" value="{{$value}}" {{$attributes}}/>
+    <x-form.input-color id="{{$id}}" name="{{$id}}" :value="$value" {{$attributes}}/>
     @if ( $comment !== "" )
         <x-form.comment>{{$comment}}</x-form.comment>
     @endif
@@ -22,14 +22,13 @@
 
 {{--
 EXAMPLE OF USAGE:
-    <x-form.combo-input-text
-        id="bank_account_balance"
-        inlabel="Solde initial 2"
+    <x-form.combo-input-number
+        id="bank_account_name"
+        inlabel="Nom du compte"
+        :value"$previousValue"        (optional)
         comment="test"                (optional)
-        min="0" max="1000000"         (optional)
         otherAttribute1="tititi"      (optional)
         otherAttribute2="tototo"      (optional)
         class="lulu nini"             (optional)
     />
 --}}
-

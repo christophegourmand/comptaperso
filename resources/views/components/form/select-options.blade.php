@@ -2,7 +2,7 @@
 {{-- @aware(['valueOfPreviousSelectedElement' => '5']) --}}
 @props(['id','name','listToDisplay' , 'listForValue' , 'valueOfPreviousSelectedElement' => ''])
 
-<select {{ $attributes->merge(['class'=>'rounded-md border-slate-400 focus:ring focus:ring-cyan-400/30']) }}>
+<select id="{{$id}}" name="{{$id}}" {{ $attributes->merge(['class'=>'rounded-md border-slate-400 focus:ring focus:ring-cyan-400/30']) }}>
     @if ( count($listToDisplay) === count($listForValue) )
         @for ($i=0 ; $i < count($listToDisplay) ; $i++)
             @if (!empty($valueOfPreviousSelectedElement) && $valueOfPreviousSelectedElement === $listForValue[$i])

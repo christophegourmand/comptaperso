@@ -5,7 +5,7 @@
         </h2>
     </x-slot>
 
-    <div class="py-12">
+    <div class="py-12 drop-shadow-xl">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
@@ -40,4 +40,8 @@
         <!-- <x-button color="black" text="Cliquer ici" link="/click"/> -->
         <!-- <x-button color="gray" text="Cliquer ici" link="/click"/> -->
     </div>
+
+    <x-widget.card id="widget_bank_accounts" title="Comptes bancaires">
+        <p>ici mes comptes</p>
+    </x-widget.card>
 </x-app-layout>

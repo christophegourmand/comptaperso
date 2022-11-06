@@ -20,23 +20,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// SECTION - URIS FOR AUTHENTICATED USERS =====================
+// SECTION - URIs FOR AUTHENTICATED USERS =====================
+require __DIR__.'/auth.php';
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+//NOTE: 'auth' and 'verified' are keys who point to real middleware (see: App/Http/Kernel.php)
 
-require __DIR__.'/auth.php';
 
-//--- BANK ACCOUNT
-// Route::get(
-//     'form-add-bank-account',
-//     function(){
-//         return view('bankAccount/formAddBankAccount');
-//     }
-// );
 Route::resource('bankAccounts', BankAccountController::class);
 
-// SECTION - URIS FOR TESTS AND DEBUG =====================
+// SECTION - URIs FOR TESTS AND DEBUG =====================
 Route::get(
     '/essais',
     function()

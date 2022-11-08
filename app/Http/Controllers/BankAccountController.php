@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\AccountType;
 use App\Models\BankAccount;
+use App\Models\Icon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
@@ -48,7 +49,7 @@ class BankAccountController extends Controller
 			$previousFilled_balance = 0;
 			$previousFilled_date = date('Y-m-d');
 			$previousFilled_description = "";
-			$previousFilled_icon_path = "";
+			$previousFilled_iconId = "";
 			$previousFilled_icon_color_hexa = "";
 
 			//--- get instances for all records of table `account_types`
@@ -61,6 +62,16 @@ class BankAccountController extends Controller
 				$accountTypeIds[] = $accountType->id;
 			}
 
+			//--- get instances for all records of table `icons`
+            $icons = Icon::all();
+			//--- create a list of names only + a list of id only
+			$iconNames = [];
+			$iconIds = [];
+			foreach ($icons as $icon){
+				$iconNames[] = $icon->google_icon_ref;
+				$iconIds[] = $icon->id;
+            }
+
 			// SECTION : return the view with datas
 			return view(
 				'bankAccount.create' ,  // view name
@@ -71,10 +82,12 @@ class BankAccountController extends Controller
 					'previousFilled_balance' => $previousFilled_balance,
 					'previousFilled_date' => $previousFilled_date,
 					'previousFilled_description' => $previousFilled_description,
-					'previousFilled_icon_path' => $previousFilled_icon_path,
+					'previousFilled_iconId' => $previousFilled_iconId,
 					'previousFilled_icon_color_hexa' => $previousFilled_icon_color_hexa,
 					'accountTypeNames' => $accountTypeNames,
-					'accountTypeIds' => $accountTypeIds
+					'accountTypeIds' => $accountTypeIds,
+					'iconNames' => $iconNames,
+					'iconIds' => $iconIds
 				]
 			);
 		}

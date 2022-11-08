@@ -1,3 +1,2 @@
-<div>
-    <!-- When there is no desire, all things are at peace. - Laozi -->
-</div>
+{{-- WORK IN PREGRESS --}}
+<input type="radio" {{ $attributes->merge(['class'=>'rounded-md border-slate-400 focus:ring focus:ring-cyan-400/30']) }}>

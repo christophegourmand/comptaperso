@@ -91,7 +91,18 @@
 				required
 			/>
 
-            <!-- icon -->
+
+
+            {{--
+            <x-form.combo-select-options
+				id="bank_account_icon"
+				inlabel="Icône"
+				comment="Si une icône vous manque, contactez-nous!"
+				:listToDisplay="$iconNames"
+				:listForValue="$iconIds"
+				:valueOfPreviousSelectedElement="$previousFilled_iconId"
+			/>
+            --}}
 
             <!-- icon color -->
             <x-form.combo-input-color
@@ -100,6 +111,23 @@
 				:value="$previousFilled_icon_color_hexa"
 				comment=""
 			/>
+
+            <!-- icon -->
+            <x-form.label for="bank_account_icon" class="mt-6 flex justify-between items-baseline">
+                <span>Icône</span>
+                {{-- <small class="italic text-cyan-600">required</small> --}}
+            </x-form.label>
+
+            <fieldset class="flex flex-row flex-wrap justify-content-around gap-3">
+                @for ($i = 0; $i < count($iconNames); $i++)
+                        <input class="google-icon-form-radio" type="radio" name="bank_account_icon_id" id="icon_id_{{$iconIds[$i]}}" value="{{$iconIds[$i]}}">
+                        <label class="google-icon-form-label" for="icon_id_{{$iconIds[$i]}}">
+                            <span class="material-symbols-outlined text-5xl">{{$iconNames[$i]}}</span>
+                        </label>
+                @endfor
+            </fieldset>
+
+
 
 			<div class="mt-5 text-center">
 				<x-form.submit

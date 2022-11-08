@@ -1,3 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.google-icon-form-radio
+{
+    display:none;
+}
+
+.google-icon-form-label > span
+{
+    border-radius: 10px;
+}
+
+.google-icon-form-radio:checked + .google-icon-form-label > span
+{
+    outline: 4px solid hsl(194, 100%, 61.4%);
+    box-shadow: 0px 0px 10px 9px hsl(197, 96%, 67%);
+}

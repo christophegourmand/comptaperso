@@ -98,7 +98,7 @@ class BankAccount extends Model
         $localCurrancySymbol = '€';
 
         $balanceFormatted = number_format($this->balance , 2 , $decimalSeparator , $thousandSeparator);
-        $balanceFormatted .= ' ' . $localCurrancySymbol;
+        $balanceFormatted .= " " . $localCurrancySymbol;
 
         return $balanceFormatted;
     }

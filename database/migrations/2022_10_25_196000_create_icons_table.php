@@ -13,11 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('preference_categories', function (Blueprint $table) {
+        Schema::create('icons', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 100)->unique();
+            $table->string('category', 50)->nullable();
+            $table->string('google_icon_ref', 50);
             $table->smallInteger('position',false, true)->nullable();
             $table->timestamps();
+
+            $table->index(['category','google_icon_ref']);
+            $table->unique(['category','google_icon_ref']);
         });
     }
 
@@ -28,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('preference_categories');
+        Schema::dropIfExists('icons');
     }
 };

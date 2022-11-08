@@ -73,7 +73,8 @@ class DatabaseSeeder extends Seeder
         $this->call([
             AccountTypeSeeder::class,
             PreferenceCategorySeeder::class,
-            PreferenceSeeder::class
+            PreferenceSeeder::class,
+            IconSeeder::class
             // table `preference_user` (pivot|jointure)
 
         ]);

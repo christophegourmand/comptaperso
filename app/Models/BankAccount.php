@@ -103,4 +103,13 @@ class BankAccount extends Model
         return $balanceFormatted;
     }
 
+    /**
+    * Get the bank-accounts using that account-type.
+    */
+    public function icon()
+    {
+        return $this->hasOne(Icon::class);
+    }
+
+
 }

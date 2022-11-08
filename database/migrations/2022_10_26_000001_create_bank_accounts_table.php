@@ -23,7 +23,8 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->double('balance', 24, 8);
             $table->date('balance_date');
-            $table->string('icon_path')->nullable();
+            // $table->string('icon_path')->nullable();
+            $table->bigInteger('icon_id')->unsigned()->nullable();
             $table->string('icon_color_hexa', 7)->nullable();
             $table->timestamps();
         });
@@ -33,6 +34,9 @@ return new class extends Migration
                 ->cascadeOnUpdate()
                 ->cascadeOnDelete();
             $table->foreign('account_type_id')->references('id')->on('account_types')
+                ->cascadeOnUpdate()
+                ->nullOnDelete();
+            $table->foreign('icon_id')->references('id')->on('icons')
                 ->cascadeOnUpdate()
                 ->nullOnDelete();
         });

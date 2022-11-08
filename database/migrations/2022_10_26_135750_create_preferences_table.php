@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->bigInteger('preference_category_id')->unsigned()->nullable();
             $table->string('name')->unique();
-            $table->integer('position')->nullable();
+            $table->smallInteger('position',false, true)->nullable();
             $table->timestamps();
         });
 

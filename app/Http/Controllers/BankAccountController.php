@@ -116,28 +116,11 @@ class BankAccountController extends Controller
 			// "bank_account_balance" => "required|integer|numeric|max:999999999999999999999999|min:-999999999999999999999999", // 24 digit
 			"bank_account_balance" => "required|integer|numeric|max:999999999999|min:-999999999999", // 12 digit
 			"bank_account_balance_date" => "required|date|before_or_equal:now",
-			"bank_account_icon_color_hexa" => "regex:/^\#[0-9abcdef]{6}$/i" //accept color hexa
+			"bank_account_icon_color_hexa" => "regex:/^\#[0-9abcdef]{6}$/i", //accept color hexa
+			"bank_account_icon_id" => "required|integer|numeric|min:1",
 		]);
 
 		// TODO : wrap in a condition : IF ($validatedData)
-
-        //--- METHOD 1 : (not sure of the syntaxe to store it)
-        /*
-		$newBankAccount = BankAccount::create([
-			'user_id' => Auth::user()->id,
-			'account_type_id' => $request->bank_account_type,
-			'name' => $request->bank_account_name,
-			'reference' => $request->bank_account_reference,
-			'description' => $request->bank_account_description,
-			'balance' => $request->bank_account_balance,
-			'balance_date' => $request->bank_account_balance_date,
-			'icon_path' => '', // TODO : stop to pass empty string when you have a table for icons
-			'icon_color_hexa' => $request->bank_account_icon_color_hexa,
-			// 'aa' => $request->aa,
-			// 'aa' => $request->aa,
-			// 'aa' => $request->aa,
-		]);
-        */
 
         //--- METHOD 2
         $newBankAccount = new BankAccount;
@@ -148,8 +131,8 @@ class BankAccountController extends Controller
         $newBankAccount->description = $request->bank_account_description;
         $newBankAccount->balance = $request->bank_account_balance;
         $newBankAccount->balance_date = $request->bank_account_balance_date;
-        $newBankAccount->icon_path = ''; // TODO : stop to pass empty string when you have a table for icons
         $newBankAccount->icon_color_hexa = $request->bank_account_icon_color_hexa;
+        $newBankAccount->icon_id = $request->bank_account_icon_id;
 
         $newBankAccount->save();
 

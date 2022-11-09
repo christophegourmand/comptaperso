@@ -118,11 +118,11 @@
                 {{-- <small class="italic text-cyan-600">required</small> --}}
             </x-form.label>
 
-            <fieldset class="flex flex-row flex-wrap justify-content-around gap-3">
+            <fieldset id="bank_account_icon" class="flex flex-row flex-wrap justify-content-around gap-3">
                 @for ($i = 0; $i < count($iconNames); $i++)
                         <input class="google-icon-form-radio" type="radio" name="bank_account_icon_id" id="icon_id_{{$iconIds[$i]}}" value="{{$iconIds[$i]}}">
                         <label class="google-icon-form-label" for="icon_id_{{$iconIds[$i]}}">
-                            <span class="material-symbols-outlined text-5xl text-sky-600">{{$iconNames[$i]}}</span>
+                            <span class="material-symbols-outlined text-5xl ">{{$iconNames[$i]}}</span>
                         </label>
                 @endfor
             </fieldset>

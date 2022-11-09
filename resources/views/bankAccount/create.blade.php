@@ -122,7 +122,7 @@
                 @for ($i = 0; $i < count($iconNames); $i++)
                         <input class="google-icon-form-radio" type="radio" name="bank_account_icon_id" id="icon_id_{{$iconIds[$i]}}" value="{{$iconIds[$i]}}">
                         <label class="google-icon-form-label" for="icon_id_{{$iconIds[$i]}}">
-                            <span class="material-symbols-outlined text-5xl">{{$iconNames[$i]}}</span>
+                            <span class="material-symbols-outlined text-5xl text-sky-600">{{$iconNames[$i]}}</span>
                         </label>
                 @endfor
             </fieldset>

@@ -1,9 +1,11 @@
 <x-app-layout>
+    {{--
 	<x-slot name="header">
 		<h2 class="font-semibold text-xl text-gray-800 leading-tight">
 			{{ __('Dashboard') }}
 		</h2>
 	</x-slot>
+    --}}
 
 	{{--
 	<div class="py-12 drop-shadow-xl">
@@ -28,12 +30,12 @@
 	--}}
 
 	<section id="widget_container" class="p-2 my-3 flex flex-row justify-center gap-3 items-start flex-wrap">
-		<x-widget.card id="widget_bank_accounts" title="Comptes bancaires" class="grow">
+		{{--
+        <x-widget.card id="widget_bank_accounts" title="Comptes bancaires (flex)" class="grow">
 			<ul class="divide-y">
 				@foreach ($bankAccounts as $bankAccount)
-                    {{-- Flex version --}}
 					<x-widget.bank-account-line
-						:google-icon="$bankAccount->icon_path"
+						:google-icon="$bankAccount->getIconRef()"
                         :color="$bankAccount->icon_color_hexa"
 						:main-line="$bankAccount->name"
 						:sub-line="$bankAccount->description"
@@ -42,13 +44,13 @@
 				@endforeach
 			</ul>
 		</x-widget.card>
+        --}}
 
         <x-widget.card id="widget_bank_accounts" title="Comptes bancaires" class="grow">
 			<ul class="divide-y">
 				@foreach ($bankAccounts as $bankAccount)
-                    {{-- Grid version --}}
 					<x-widget.bank-account-line-grid
-						:google-icon="$bankAccount->icon_path"
+						:google-icon="$bankAccount->getIconRef()"
                         :color="$bankAccount->icon_color_hexa"
 						:main-line="$bankAccount->name"
 						:sub-line="$bankAccount->description"

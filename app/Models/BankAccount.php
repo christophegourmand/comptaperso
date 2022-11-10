@@ -111,5 +111,12 @@ class BankAccount extends Model
         return $this->hasOne(Icon::class);
     }
 
+    public function getIconRef()
+    {
+        $icon = Icon::find( $this->icon_id );
+
+        return $icon->google_icon_ref;
+    }
+
 
 }

@@ -62,10 +62,10 @@ class DatabaseSeeder extends Seeder
             'remember_token' => Str::random(10)
         ]);
 
-        //--- add the role No 3 ('member') for user No 1 ('webadmin')
+        //--- add the role No 3 ('member') for user No 2 ('christophe')
         DB::table('role_user')->insert([
-            'role_id' => 2,
-            'user_id' => 1
+            'role_id' => 2, // = member
+            'user_id' => 2
         ]);
 
 

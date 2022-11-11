@@ -15,7 +15,8 @@ return new class extends Migration
     {
         Schema::create('company_comments', function (Blueprint $table) {
             $table->id();
-            // $table->bigInteger('company_id')->
+            $table->bigInteger('company_id')->unsigned();
+            $table->mediumText('comment');
             $table->timestamps();
         });
     }

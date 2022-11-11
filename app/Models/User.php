@@ -55,7 +55,7 @@ class User extends Authenticatable
     */
     public function bankAccounts()
     {
-        return $this->hasMany(BankAccount::class , 'bank_account_user'); // arg2 is the pivot table
+        return $this->hasMany(BankAccount::class);
     }
 
 

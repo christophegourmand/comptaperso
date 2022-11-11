@@ -84,11 +84,11 @@ class BankAccount extends Model
 	}
 
 	/**
-	* Get the users who possess this bank-account.
+	* Get the user who possess this bank-account.
 	*/
-	public function users()
+	public function user()
 	{
-		return $this->belongsToMany(User::class , 'bank_account_user'); // arg2 is the pivot table
+		return $this->belongsTo(User::class);
 	}
 
     public function balanceFormatted()

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Company;
+use App\Models\CompanyComment;
 use App\Models\User; // REVIEW : is it really usefull as we can use $Company->user_id = Auth::user()->id;  ?
 
 use Illuminate\Support\Facades\Auth;
@@ -62,9 +63,13 @@ class CompanyController extends Controller
     public function show($id)
     {
         $company = Company::find($id);
+        $companyComments = CompanyComment::where('company_id',$id)->get();
         return view(
             'company.show',
-            ['company' => $company]
+            [
+                'company' => $company,
+                'companyComments' => $companyComments
+            ]
         );
     }
 

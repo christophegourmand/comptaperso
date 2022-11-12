@@ -12,6 +12,24 @@
             {{-- widget for comments --}}
             <x-widget.card id="" title="commentaires" class="grow OFFbg-orange-300">
                 <div class="">
+                    @foreach ($companyComments as $companyComment)
+                        <div class="my-3 border rounded-lg bg-zinc-100 p-2">
+                            <div class="flex justify-between items-center border-b border-gray-300">
+                                <p class="text-slate-500 text-xs">
+                                    {{ substr_replace($companyComment->updated_at , ' --' , 10 ,0) }}
+                                </p>
+                                <div>
+                                    <a href="/companyComments/1/edit">
+                                        <span class="material-icons text-lg text-slate-500">mode_edit</span>
+                                    </a>
+                                </div>
+                            </div>
+                            <p class="mt-1">{{ $companyComment->comment }}</p>
+                        </div>
+                    @endforeach
+
+                    {{-- ONLY FOR TESTS IF YOU DON'T HAVE COMMENTS --}}
+                    {{--
                     @for ($i = 0 ; $i < 5; $i++)
                         <div class="my-3 border rounded-lg bg-zinc-100 p-2">
                             <div class="flex justify-between items-center border-b border-gray-300">
@@ -25,6 +43,7 @@
                             <p class="mt-1">{{ fake()->text() }}</p>
                         </div>
                     @endfor
+                    --}}
                 </div>
 
                 <div class="text-center">

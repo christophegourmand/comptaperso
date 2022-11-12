@@ -18,40 +18,31 @@
                                 <p class="text-slate-500 text-xs">
                                     {{ substr_replace($companyComment->updated_at , ' --' , 10 ,0) }}
                                 </p>
-                                <div>
-                                    <a href="/companies/{{$company->id}}/companyComments/{{$companyComment->id}}/edit">
-                                        <span class="material-icons text-lg text-slate-500">mode_edit</span>
+                                <div class="flex items-baseline gap-2">
+                                    <a href="/companies/{{$company->id}}/companyComments/{{$companyComment->id}}/edit" class="">
+                                        <x-icon-modify class="relative bottom-px"/>
                                     </a>
-                                    <a href="/companyComments/1/edit">
-                                        <span class="material-icons text-lg text-slate-500">remove_circle</span>
-                                    </a>
+                                    <form method="POST" action="/companies/{{$company->id}}/companyComments/{{$companyComment->id}}" id="delete_comment_{{$companyComment->id}}">
+                                        @method('DELETE')
+                                        @csrf
+                                    </form>
+
+                                    <button type="submit" form="delete_comment_{{$companyComment->id}}" value="delete">
+                                        <x-icon-delete class=""/>
+                                    </button>
+                                    {{-- <a href="/companies/{{$company->id}}/companyComments/{{$companyComment->id}}" class=""> --}}
+                                        {{-- <x-icon-delete class=""/> --}}
+                                    {{-- </a> --}}
                                 </div>
                             </div>
                             <p class="mt-1">{{ $companyComment->comment }}</p>
                         </div>
                     @endforeach
-
-                    {{-- ONLY FOR TESTS IF YOU DON'T HAVE COMMENTS --}}
-                    {{--
-                    @for ($i = 0 ; $i < 5; $i++)
-                        <div class="my-3 border rounded-lg bg-zinc-100 p-2">
-                            <div class="flex justify-between items-center border-b border-gray-300">
-                                <p class="text-slate-500 text-xs">{{ fake()->date()." - ".fake()->time() }}</p>
-                                <div>
-                                    <a href="/companyComments/1/edit">
-                                        <span class="material-icons text-lg text-slate-500">mode_edit</span>
-                                    </a>
-                                </div>
-                            </div>
-                            <p class="mt-1">{{ fake()->text() }}</p>
-                        </div>
-                    @endfor
-                    --}}
                 </div>
 
                 <div class="text-center">
                     <a class="" href="/companies/{{$company->id}}/companyComments/create">
-                        <span class="material-symbols-outlined text-blue-500">add_circle</span>
+                        <x-icon-add iconStyle="outlined"/>
                     </a>
                 </div>
             </x-widget.card>

@@ -99,8 +99,11 @@ class CompanyCommentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($company_id, $companyComment_id)
     {
-        //
+        $companyComment = CompanyComment::find($companyComment_id);
+        $companyComment->delete();
+
+        return redirect('companies/'.$company_id);
     }
 }

@@ -13,6 +13,6 @@ class Company extends Model
     * Get the comments written for this company
     */
     public function comments(){
-        return $this->hasMany(CompanyComments::class);
+        return $this->hasMany(CompanyComment::class);
     }
 }

@@ -46,7 +46,10 @@
 		</x-widget.card>
         --}}
 
-        <x-widget.card id="widget_bank_accounts" title="Comptes bancaires" class="grow">
+        <x-widget.card id="widget_bank_accounts" title="Comptes bancaires" class="grow relative">
+            <a href="/bankAccounts/create">
+                <span class="material-symbols-outlined absolute top-3 right-5 text-blue-500">add_circle</span>
+            </a>
 			<ul class="divide-y">
 				@foreach ($bankAccounts as $bankAccount)
 					<x-widget.bank-account-line-grid
@@ -59,6 +62,23 @@
 				@endforeach
 			</ul>
 		</x-widget.card>
+
+        <x-widget.card id="widget_companies" title="Liste de tiers" class="grow relative">
+            <a href="/companies/create">
+                <span class="material-symbols-outlined absolute top-3 right-5 text-blue-500">add_circle</span>
+            </a>
+
+            <ul class="divide-y">
+                @foreach ($companies as $company)
+                    <li class="py-2 flex justify-between">
+                        <span>{{$company->name}}</span>
+                        <a href="/companies/{{$company->id}}" class="">
+                            <span class="material-symbols-outlined">visibility</span>
+                        </a>
+                    </li>
+                @endforeach
+            </ul>
+        </x-widget.card>
 
 		<x-widget.card id="widget_last_operations" title="Dernières opérations" class="grow">
 			<p>here</p>

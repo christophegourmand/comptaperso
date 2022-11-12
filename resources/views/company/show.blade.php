@@ -28,7 +28,7 @@
                 </div>
 
                 <div class="text-center">
-                    <a class="" href="/companyComments/create">
+                    <a class="" href="/companies/{{$company->id}}/companyComments/create">
                         <span class="material-symbols-outlined text-blue-500">add_circle</span>
                     </a>
                 </div>

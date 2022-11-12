@@ -6,7 +6,7 @@ use Faker\Provider\Company;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class CompanyComments extends Model
+class CompanyComment extends Model
 {
     use HasFactory;
 

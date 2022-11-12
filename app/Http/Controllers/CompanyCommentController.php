@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Company;
+use App\Models\CompanyComment;
+use Illuminate\Support\Facades\Route;
 
-class CompanyCommentsController extends Controller
+class CompanyCommentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,9 +24,13 @@ class CompanyCommentsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($company_id)
     {
-        //
+        $company = Company::find($company_id);
+        return view(
+            'companyComment.create',
+            ['company' => $company]
+        );
     }
 
     /**
@@ -32,9 +39,24 @@ class CompanyCommentsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store($company_id , Request $request)
     {
-        //
+        // dd($request);
+        // Route::post('/companies/{company_id}/companyComments' , function($company_id, $request){
+        // });
+
+        $validedData = $request->validate([
+            "companyComment_comment" => "required|max:16000000"
+        ]);
+
+        $companyComment = new CompanyComment();
+        $companyComment->company_id = $company_id;
+        $companyComment->comment = $request->companyComment_comment;
+        $companyComment->save();
+
+        return redirect('companies/'.$company_id) ;
+
+
     }
 
     /**

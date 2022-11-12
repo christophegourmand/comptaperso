@@ -19,8 +19,11 @@
                                     {{ substr_replace($companyComment->updated_at , ' --' , 10 ,0) }}
                                 </p>
                                 <div>
-                                    <a href="/companyComments/1/edit">
+                                    <a href="/companies/{{$company->id}}/companyComments/{{$companyComment->id}}/edit">
                                         <span class="material-icons text-lg text-slate-500">mode_edit</span>
+                                    </a>
+                                    <a href="/companyComments/1/edit">
+                                        <span class="material-icons text-lg text-slate-500">remove_circle</span>
                                     </a>
                                 </div>
                             </div>

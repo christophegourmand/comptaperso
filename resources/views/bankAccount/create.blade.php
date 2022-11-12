@@ -1,4 +1,4 @@
-@auth
+{{-- @auth --}}
 <x-app-layout>
 	<div class="py-5 px-12 flex flex-col justify-start items-center">
 		<h1 class="mb-3 text-xl text-slate-600">Ajout d'un nouveau compte bancaire</h1>
@@ -139,4 +139,4 @@
 		</form>
 	<div>
 </x-app-layout>
-@endauth
+{{-- @endauth --}}

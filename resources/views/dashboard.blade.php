@@ -85,7 +85,8 @@
 		</x-widget.card>
 	</section>
 
-	<section class="sm:px-6 lg:px-8 flex flex-row justify-center">
+    <section class="sm:px-6 lg:px-8 flex flex-row justify-center gap-3">
 		<x-button color="blue" text="Ajouter un compte bancaire" link="/bankAccounts/create"/>
+		<x-button color="orange" text="Ajouter une societe" link="/companies/create"/>
 	</section>
 </x-app-layout>

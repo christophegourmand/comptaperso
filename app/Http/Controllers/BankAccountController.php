@@ -123,7 +123,7 @@ class BankAccountController extends Controller
 		// TODO : wrap in a condition : IF ($validatedData)
 
         //--- METHOD 2
-        $newBankAccount = new BankAccount;
+        $newBankAccount = new BankAccount();
         $newBankAccount->user_id = Auth::user()->id;
         $newBankAccount->account_type_id = $request->bank_account_type;
         $newBankAccount->name = $request->bank_account_name;

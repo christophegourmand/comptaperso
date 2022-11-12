@@ -49,7 +49,6 @@ class CompanyController extends Controller
         $company->user_id = Auth::user()->id;
         $company->name = $request->company_name;
         $company->save();
-        // dd('on va sauvegarder $company->save()');
 
         return redirect('dashboard');
     }
@@ -62,7 +61,11 @@ class CompanyController extends Controller
      */
     public function show($id)
     {
-        //
+        $company = Company::find($id);
+        return view(
+            'company.show',
+            ['company' => $company]
+        );
     }
 
     /**

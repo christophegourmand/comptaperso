@@ -80,9 +80,8 @@ class DatabaseSeeder extends Seeder
             PreferenceCategorySeeder::class,
             PreferenceSeeder::class,
             IconSeeder::class,
-            OperationStatusSeeder::class
-            // table `preference_user` (pivot|jointure)
-
+            OperationStatusSeeder::class,
+            OperationTypeSeeder::class
         ]);
     }
 }

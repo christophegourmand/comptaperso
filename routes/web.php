@@ -4,10 +4,10 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\BankAccountController;
-use App\Http\Controllers\CompanyController;
-use App\Http\Controllers\CompanyCommentController;
+use App\Http\Controllers\ThirdpartyController;
+use App\Http\Controllers\ThirdpartyCommentController;
 
-use App\Models\Company;
+use App\Models\Thirdparty;
 // use App\Http\Controllers\OrderController; // TODO : Remove this controller is useless (maybe it came with template)
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
@@ -36,8 +36,8 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['au
 
 Route::resource('bankAccounts', BankAccountController::class);
 
-Route::resource('companies', CompanyController::class);
-Route::resource('companies.companyComments', CompanyCommentController::class);
+Route::resource('thirdparties', ThirdpartyController::class);
+Route::resource('thirdparties.thirdpartyComments', ThirdpartyCommentController::class);
 
 
 // SECTION - URIs FOR TESTS AND DEBUG =====================

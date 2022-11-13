@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\AccountType;
 use App\Models\BankAccount;
-use App\Models\Company;
+use App\Models\Thirdparty;
 
 class DashboardController extends Controller
 {
@@ -24,13 +24,13 @@ class DashboardController extends Controller
         //--- retrieve bank accounts of connected user:
         $userId = Auth::user()->id;
         $bankAccounts = BankAccount::where('user_id' , $userId)->get();
-        $companies = Company::where('user_id' , $userId)->get();
+        $thirdparties = Thirdparty::where('user_id' , $userId)->get();
 
         return view(
             'dashboard',
             [
                 'bankAccounts' => $bankAccounts,
-                'companies' => $companies
+                'thirdparties' => $thirdparties
             ]
         );
     }

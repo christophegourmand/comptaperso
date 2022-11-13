@@ -3,13 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Company;
-use App\Models\CompanyComment;
-use App\Models\User; // REVIEW : is it really usefull as we can use $Company->user_id = Auth::user()->id;  ?
+use App\Models\Thirdparty;
+use App\Models\ThirdpartyComment;
+use App\Models\User; // REVIEW : is it really usefull as we can use $Thirdparty->user_id = Auth::user()->id;  ?
 
 use Illuminate\Support\Facades\Auth;
 
-class CompanyController extends Controller
+class ThirdpartyController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -28,9 +28,9 @@ class CompanyController extends Controller
      */
     public function create()
     {
-        //--- columns in table `companies` : id , user_id , nom , created_at , updated_at
+        //--- columns in table `thirdparties` : id , user_id , nom , created_at , updated_at
         return view(
-            'company.create'
+            'thirdparty.create'
         );
     }
 
@@ -43,17 +43,17 @@ class CompanyController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-			"company_name" => "required|max:100",
-			"company_shortdescription" => "max:255",
-            "company_note" => "max:16000000"
+			"thirdparty_name" => "required|max:100",
+			"thirdparty_shortdescription" => "max:255",
+            "thirdparty_note" => "max:16000000"
 		]);
 
-        $company = new Company();
-        $company->user_id = Auth::user()->id;
-        $company->name = $request->company_name;
-        $company->shortdescription = $request->company_shortdescription;
-        $company->note = $request->company_note;
-        $company->save();
+        $thirdparty = new Thirdparty();
+        $thirdparty->user_id = Auth::user()->id;
+        $thirdparty->name = $request->thirdparty_name;
+        $thirdparty->shortdescription = $request->thirdparty_shortdescription;
+        $thirdparty->note = $request->thirdparty_note;
+        $thirdparty->save();
 
         return redirect('dashboard');
     }
@@ -66,13 +66,13 @@ class CompanyController extends Controller
      */
     public function show($id)
     {
-        $company = Company::find($id);
-        $companyComments = CompanyComment::where('company_id',$id)->get();
+        $thirdparty = Thirdparty::find($id);
+        $thirdpartyComments = ThirdpartyComment::where('thirdparty_id',$id)->get();
         return view(
-            'company.show',
+            'thirdparty.show',
             [
-                'company' => $company,
-                'companyComments' => $companyComments
+                'thirdparty' => $thirdparty,
+                'thirdpartyComments' => $thirdpartyComments
             ]
         );
     }

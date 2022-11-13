@@ -4,7 +4,7 @@
 		{{-- <h1 class="mb-3 text-xl text-slate-600">Tiers</h1> --}}
         <div class="mb-3 text-gray-700 text-center">
             <span class="material-icons text-4xl">person</span>
-            <h2 class="text-xl font-bold">{{$company->name}}</h2>
+            <h2 class="text-xl font-bold">{{$thirdparty->name}}</h2>
         </div>
 
         {{-- informations and widget: --}}
@@ -12,36 +12,36 @@
             {{-- widget for comments --}}
             <x-widget.card id="" title="commentaires" class="grow OFFbg-orange-300">
                 <div class="">
-                    @foreach ($companyComments as $companyComment)
+                    @foreach ($thirdpartyComments as $thirdpartyComment)
                         <div class="my-3 border rounded-lg bg-zinc-100 p-2">
                             <div class="flex justify-between items-center border-b border-gray-300">
                                 <p class="text-slate-500 text-xs">
-                                    {{ substr_replace($companyComment->updated_at , ' --' , 10 ,0) }}
+                                    {{ substr_replace($thirdpartyComment->updated_at , ' --' , 10 ,0) }}
                                 </p>
                                 <div class="flex items-baseline gap-2">
-                                    <a href="/companies/{{$company->id}}/companyComments/{{$companyComment->id}}/edit" class="">
+                                    <a href="/thirdparties/{{$thirdparty->id}}/thirdpartyComments/{{$thirdpartyComment->id}}/edit" class="">
                                         <x-icon-modify class="relative bottom-px"/>
                                     </a>
-                                    <form method="POST" action="/companies/{{$company->id}}/companyComments/{{$companyComment->id}}" id="delete_comment_{{$companyComment->id}}">
+                                    <form method="POST" action="/thirdparties/{{$thirdparty->id}}/thirdpartyComments/{{$thirdpartyComment->id}}" id="delete_comment_{{$thirdpartyComment->id}}">
                                         @method('DELETE')
                                         @csrf
                                     </form>
 
-                                    <button type="submit" form="delete_comment_{{$companyComment->id}}" value="delete">
+                                    <button type="submit" form="delete_comment_{{$thirdpartyComment->id}}" value="delete">
                                         <x-icon-delete class=""/>
                                     </button>
-                                    {{-- <a href="/companies/{{$company->id}}/companyComments/{{$companyComment->id}}" class=""> --}}
+                                    {{-- <a href="/thirdparties/{{$thirdparty->id}}/thirdpartyComments/{{$thirdpartyComment->id}}" class=""> --}}
                                         {{-- <x-icon-delete class=""/> --}}
                                     {{-- </a> --}}
                                 </div>
                             </div>
-                            <p class="mt-1">{{ $companyComment->comment }}</p>
+                            <p class="mt-1">{{ $thirdpartyComment->comment }}</p>
                         </div>
                     @endforeach
                 </div>
 
                 <div class="text-center">
-                    <a class="" href="/companies/{{$company->id}}/companyComments/create">
+                    <a class="" href="/thirdparties/{{$thirdparty->id}}/thirdpartyComments/create">
                         <x-icon-add iconStyle="outlined"/>
                     </a>
                 </div>

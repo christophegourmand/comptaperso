@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('companies', function (Blueprint $table) {
+        Schema::create('thirdparties', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('user_id')->unsigned();
             $table->string('name', 100)->index();
@@ -26,7 +26,7 @@ return new class extends Migration
         });
 
 
-        Schema::table('companies', function (Blueprint $table) {
+        Schema::table('thirdparties', function (Blueprint $table) {
             $table->foreign('user_id')->references('id')->on('users')
                 ->cascadeOnUpdate()
                 ->cascadeOnDelete();
@@ -40,6 +40,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('companies');
+        Schema::dropIfExists('thirdparties');
     }
 };

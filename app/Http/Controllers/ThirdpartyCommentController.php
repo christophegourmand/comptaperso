@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Company;
-use App\Models\CompanyComment;
+use App\Models\Thirdparty;
+use App\Models\ThirdpartyComment;
 use Illuminate\Support\Facades\Route;
 
-class CompanyCommentController extends Controller
+class ThirdpartyCommentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -24,12 +24,12 @@ class CompanyCommentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($company_id)
+    public function create($thirdparty_id)
     {
-        $company = Company::find($company_id);
+        $thirdparty = Thirdparty::find($thirdparty_id);
         return view(
-            'companyComment.create',
-            ['company' => $company]
+            'thirdpartyComment.create',
+            ['thirdparty' => $thirdparty]
         );
     }
 
@@ -39,22 +39,22 @@ class CompanyCommentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store($company_id , Request $request)
+    public function store($thirdparty_id , Request $request)
     {
         // dd($request);
-        // Route::post('/companies/{company_id}/companyComments' , function($company_id, $request){
+        // Route::post('/thirdparties/{thirdparty_id}/thirdpartyComments' , function($thirdparty_id, $request){
         // });
 
         $validedData = $request->validate([
-            "companyComment_comment" => "required|max:16000000"
+            "thirdpartyComment_comment" => "required|max:16000000"
         ]);
 
-        $companyComment = new CompanyComment();
-        $companyComment->company_id = $company_id;
-        $companyComment->comment = $request->companyComment_comment;
-        $companyComment->save();
+        $thirdpartyComment = new ThirdpartyComment();
+        $thirdpartyComment->thirdparty_id = $thirdparty_id;
+        $thirdpartyComment->comment = $request->thirdpartyComment_comment;
+        $thirdpartyComment->save();
 
-        return redirect('companies/'.$company_id) ;
+        return redirect('thirdparties/'.$thirdparty_id) ;
 
 
     }
@@ -99,11 +99,11 @@ class CompanyCommentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($company_id, $companyComment_id)
+    public function destroy($thirdparty_id, $thirdpartyComment_id)
     {
-        $companyComment = CompanyComment::find($companyComment_id);
-        $companyComment->delete();
+        $thirdpartyComment = ThirdpartyComment::find($thirdpartyComment_id);
+        $thirdpartyComment->delete();
 
-        return redirect('companies/'.$company_id);
+        return redirect('thirdparties/'.$thirdparty_id);
     }
 }

@@ -13,9 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('company_comments', function (Blueprint $table) {
+        Schema::create('thirdparty_comments', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('company_id')->unsigned();
+            $table->bigInteger('thirdparty_id')->unsigned();
             $table->mediumText('comment');
             $table->timestamps();
         });
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('company_comments');
+        Schema::dropIfExists('thirdparty_comments');
     }
 };

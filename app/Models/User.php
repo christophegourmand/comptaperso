@@ -66,4 +66,13 @@ class User extends Authenticatable
     {
         return $this->hasMany(Preference::class , 'preference_user'); // arg2 is the pivot table
     }
+
+    /**
+    * Get the operationCategories created by this user.
+    */
+    public function operationCategories()
+    {
+        return $this->hasMany(OperationCategory::class);
+    }
+
 }

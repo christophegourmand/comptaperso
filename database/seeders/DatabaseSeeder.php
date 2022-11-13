@@ -7,12 +7,17 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
+use \App\Models\User;
+use \App\Models\Role;
 use \App\Models\AccountType;
 use \App\Models\BankAccount;
-use \App\Models\Preference;
 use \App\Models\PreferenceCategory;
-use \App\Models\Role;
-use \App\Models\User;
+use \App\Models\Preference;
+use \App\Models\OperationCategory;
+use \App\Models\OperationStatus;
+use \App\Models\OperationType;
+use \App\Models\OperationRecurring;
+use \App\Models\Operation;
 
 
 class DatabaseSeeder extends Seeder
@@ -74,7 +79,8 @@ class DatabaseSeeder extends Seeder
             AccountTypeSeeder::class,
             PreferenceCategorySeeder::class,
             PreferenceSeeder::class,
-            IconSeeder::class
+            IconSeeder::class,
+            OperationStatusSeeder::class
             // table `preference_user` (pivot|jointure)
 
         ]);

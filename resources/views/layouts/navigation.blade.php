@@ -18,17 +18,22 @@
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link href="" active="">
-                        menuTest2
+                        Comptes bancaires
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link href="" active="">
-                        menuTest3
+                        Opérations
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link href="" active="">
-                        menuTest4
+                        Liste des tiers
+                    </x-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link href="" active="">
+                        Préférences
                     </x-nav-link>
                 </div>
             </div>

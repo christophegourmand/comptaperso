@@ -13,6 +13,21 @@
 				required
 			/>
 
+            <x-form.combo-input-text
+				id="company_shortdescription"
+				inlabel="Mini description"
+				value=""
+				comment="(limité à 255 caractères, pour d'infos peuvent être inscrites dans \'note\')"
+				required
+			/>
+
+            <x-form.combo-textarea
+				id="company_note"
+				inlabel="Note"
+				value=""
+				comment=""
+			/>
+
 			<div class="mt-5 text-center">
 				<x-form.submit
 					color="blue"

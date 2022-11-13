@@ -70,11 +70,15 @@
 
             <ul class="divide-y">
                 @foreach ($companies as $company)
-                    <li class="py-2 flex justify-between">
+                    <li class="py-2 grid grid-cols-[20rem_fit-content(100%)] grid-rows-[repeat(2,_fit-content(100%))]">
                         <span>{{$company->name}}</span>
                         <a href="/companies/{{$company->id}}" class="">
-                            <span class="material-symbols-outlined">visibility</span>
+                            <span class="material-symbols-outlined leading-[.3rem] hover:text-blue-500 active:text-blue-600">visibility</span>
                         </a>
+                        @if ( !empty($company->shortdescription))
+                            <p>{{$company->shortdescription}}</p>
+                        @endif
+                        {{-- <p class="text-sm text-gray-400">here will appear a short description of that third-party.</p> --}}
                     </li>
                 @endforeach
             </ul>

@@ -43,12 +43,16 @@ class CompanyController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-			"company_name" => "required|max:100"
+			"company_name" => "required|max:100",
+			"company_shortdescription" => "max:255",
+            "company_note" => "max:16000000"
 		]);
 
         $company = new Company();
         $company->user_id = Auth::user()->id;
         $company->name = $request->company_name;
+        $company->shortdescription = $request->company_shortdescription;
+        $company->note = $request->company_note;
         $company->save();
 
         return redirect('dashboard');

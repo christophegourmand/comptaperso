@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('operation_recurrings', function (Blueprint $table) {
             $table->id();
+            $table->string('type_of_recurring', 50)->unique();
             $table->timestamps();
         });
     }

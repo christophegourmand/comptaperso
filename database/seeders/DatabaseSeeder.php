@@ -81,7 +81,8 @@ class DatabaseSeeder extends Seeder
             PreferenceSeeder::class,
             IconSeeder::class,
             OperationStatusSeeder::class,
-            OperationTypeSeeder::class
+            OperationTypeSeeder::class,
+            OperationRecurringSeeder::class
         ]);
     }
 }

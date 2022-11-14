@@ -16,4 +16,10 @@ class OperationCategory extends Model
     {
         return $this->belongToMany(User::class);
     }
+
+    public function operations()
+    {
+        $this->hasMany(Operation::class);
+    }
+
 }

@@ -15,7 +15,7 @@ class Icon extends Model
     */
     public function bankAccounts()
     {
-        return $this->belongsToMany(BankAccount::class);
+        return $this->hasMany(BankAccount::class);
     }
 
 }

@@ -14,6 +14,6 @@ class Role extends Model
     */
     public function users()
     {
-        return $this->belongToMany(User::class, 'role_user'); // arg2 is the pivot table
+        return $this->belongsToMany(User::class, 'role_user'); // arg2 is the pivot table
     }
 }

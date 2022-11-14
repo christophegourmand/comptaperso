@@ -47,7 +47,7 @@ class User extends Authenticatable
     */
     public function roles()
     {
-        return $this->hasMany(Role::class , 'role_user'); // arg2 is the pivot table
+        return $this->belongsToMany(Role::class , 'role_user'); // arg2 is the pivot table
     }
 
     /**
@@ -64,7 +64,7 @@ class User extends Authenticatable
     */
     public function preferences()
     {
-        return $this->hasMany(Preference::class , 'preference_user'); // arg2 is the pivot table
+        return $this->belongsToMany(Preference::class , 'preference_user'); // arg2 is the pivot table
     }
 
     /**
@@ -73,6 +73,14 @@ class User extends Authenticatable
     public function operationCategories()
     {
         return $this->hasMany(OperationCategory::class);
+    }
+
+    /**
+    * Get the operationCategories created by this user.
+    */
+    public function thirdparties()
+    {
+        return $this->hasMany(Thirdparty::class);
     }
 
 }

@@ -71,8 +71,9 @@ class BankAccount extends Model
 	];
 
 
-
-
+    // =====================================
+    // SECTION : Relationships
+    // =====================================
 
 
 	/**
@@ -108,8 +109,18 @@ class BankAccount extends Model
     */
     public function icon()
     {
-        return $this->hasOne(Icon::class);
+        return $this->belongsTo(Icon::class);
     }
+
+
+    public function operations()
+    {
+        $this->hasMany(Operation::class);
+    }
+
+    // =====================================
+    // SECTION : other methods
+    // =====================================
 
     public function getIconRef()
     {

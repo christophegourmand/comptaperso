@@ -6,7 +6,11 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\BankAccountController;
 use App\Http\Controllers\ThirdpartyController;
 use App\Http\Controllers\ThirdpartyCommentController;
+use App\Http\Controllers\OperationCategoryController;
+use App\Http\Controllers\PreferenceController;
+use App\Http\Controllers\OperationController;
 
+use App\Models\OperationCategory;
 use App\Models\Thirdparty;
 // use App\Http\Controllers\OrderController; // TODO : Remove this controller is useless (maybe it came with template)
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
@@ -34,10 +38,12 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['au
 //NOTE: 'auth' and 'verified' are keys who point to real middleware (see: App/Http/Kernel.php)
 
 
-Route::resource('bankAccounts', BankAccountController::class);
-
-Route::resource('thirdparties', ThirdpartyController::class);
-Route::resource('thirdparties.thirdpartyComments', ThirdpartyCommentController::class);
+Route::resource('bankAccounts', BankAccountController::class)->middleware(['auth', 'verified']);
+Route::resource('thirdparties', ThirdpartyController::class)->middleware(['auth', 'verified']);
+Route::resource('thirdparties.thirdpartyComments', ThirdpartyCommentController::class)->middleware(['auth', 'verified']);
+Route::resource('operationCategories', OperationCategoryController::class)->middleware(['auth', 'verified']);
+Route::resource('preferences', PreferenceController::class)->middleware(['auth', 'verified']);
+Route::resource('bankAccounts.operations', OperationController::class)->middleware(['auth', 'verified']);
 
 
 // SECTION - URIs FOR TESTS AND DEBUG =====================

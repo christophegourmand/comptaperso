@@ -8,7 +8,7 @@
 			<x-form.combo-input-text
 				id="thirdparty_name"
 				inlabel="Nom de ce Tiers"
-				value=""
+				value="{{ old('thirdparty_name') }}"
 				comment=""
 				required
 			/>
@@ -16,7 +16,7 @@
             <x-form.combo-input-text
 				id="thirdparty_shortdescription"
 				inlabel="Mini description"
-				value=""
+				value="{{ old('thirdparty_shortdescription') }}"
 				comment="(limité à 255 caractères, plus d'infos peuvent être inscrites dans note)"
 				required
 			/>
@@ -24,7 +24,7 @@
             <x-form.combo-textarea
 				id="thirdparty_note"
 				inlabel="Note"
-				value=""
+				value="{{ old('thirdparty_note') }}"
 				comment=""
 			/>
 

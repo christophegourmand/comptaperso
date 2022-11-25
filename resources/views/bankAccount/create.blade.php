@@ -28,33 +28,21 @@
 				:valueOfPreviousSelectedElement="$previousFilled_accountTypeId"
 				required
 			/>
-            {{--
-            @error('bank_account_type')
-                <p class="text-red-500 italic text-base mt-1.5 leading-4">{{$message}}</p>
-            @enderror
-            --}}
 
 			<!-- name -->
 			<x-form.combo-input-text
 				id="bank_account_name"
 				inlabel="Nom du compte"
-				:value="$previousFilled_name"
+				value="{{ old('bank_account_name') }}"
 				comment=""
 				required
 			/>
-
-            {{--
-            @error('bank_account_name')
-                <p class="text-red-500 italic text-base mt-1.5 leading-4">{{$message}}</p>
-            @enderror
-            --}}
-
 
 			<!-- reference -->
 			<x-form.combo-input-text
 				id="bank_account_reference"
 				inlabel="Référence"
-				:value="$previousFilled_reference"
+				value="{{ old('bank_account_reference') }}"
 				comment="Indiquez ce qui vous aide à savoir de quel compte il s'agit, mais n'indiquez pas toutes les infos (inutile d'indiquer le code banque et code guichet, ou l'IBAN entier. Vous saurez tout autant de quel compte il s'agit en indiquant seulement le No de compte, voire seulement les chiffres de la fin)."
 			/>
 
@@ -63,7 +51,7 @@
 				inlabel="Decription"
 				id="bank_account_description"
 				name="bank_account_description"
-				:value="$previousFilled_description"
+				value="{{ old('bank_account_description') }}"
 				placeholder="Compte utilisé pour ..."
 				rows="3"
 				toto="bibi"
@@ -77,6 +65,7 @@
 				inlabel="Solde initial"
 				comment=""
 				min="0" max="1000000"
+                value="{{ old('bank_account_balance') }}"
 				required
 			/>
 
@@ -85,12 +74,11 @@
 				id="bank_account_balance_date"
 				inlabel="Date du solde initial"
 				comment=""
-				:value="$previousFilled_date"
+				value="{{ old('bank_account_balance_date') }}"
 				min="2010-01-01"
 				max="{{ date('Y-m-d') }}"
 				required
 			/>
-
 
 
             {{--
@@ -100,7 +88,7 @@
 				comment="Si une icône vous manque, contactez-nous!"
 				:listToDisplay="$iconNames"
 				:listForValue="$iconIds"
-				:valueOfPreviousSelectedElement="$previousFilled_iconId"
+				valueOfPreviousSelectedElement="{{ old('bank_account_icon') }}"
 			/>
             --}}
 
@@ -108,7 +96,7 @@
             <x-form.combo-input-color
 				id="bank_account_icon_color_hexa"
 				inlabel="Couleur de l'icône"
-				:value="$previousFilled_icon_color_hexa"
+				value="{{ old('bank_account_icon_color_hexa') }}"
 				comment=""
 			/>
 

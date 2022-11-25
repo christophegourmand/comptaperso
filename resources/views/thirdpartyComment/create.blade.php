@@ -12,7 +12,7 @@
 			<x-form.combo-textarea
 				id="thirdpartyComment_comment"
 				inlabel="Commentaire"
-				value=""
+				value="{{ old('thirdpartyComment_comment') }}"
 				comment=""
 				required
 			/>

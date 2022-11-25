@@ -29,7 +29,7 @@ class ThirdpartyCommentController extends Controller
         $thirdparty = Thirdparty::find($thirdparty_id);
         return view(
             'thirdpartyComment.create',
-            ['thirdparty' => $thirdparty]
+            compact('thirdparty')
         );
     }
 

@@ -70,10 +70,7 @@ class ThirdpartyController extends Controller
         $thirdpartyComments = ThirdpartyComment::where('thirdparty_id',$id)->get();
         return view(
             'thirdparty.show',
-            [
-                'thirdparty' => $thirdparty,
-                'thirdpartyComments' => $thirdpartyComments
-            ]
+            compact('thirdparty', 'thirdpartyComments')
         );
     }
 

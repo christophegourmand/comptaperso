@@ -28,10 +28,7 @@ class DashboardController extends Controller
 
         return view(
             'dashboard',
-            [
-                'bankAccounts' => $bankAccounts,
-                'thirdparties' => $thirdparties
-            ]
+            compact('bankAccounts' , 'thirdparties')
         );
     }
 

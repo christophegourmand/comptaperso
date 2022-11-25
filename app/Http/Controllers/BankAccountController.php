@@ -73,22 +73,23 @@ class BankAccountController extends Controller
             }
 
 			// SECTION : return the view with datas
+            // param1 : view name , param2 : datas given to the view.
 			return view(
-				'bankAccount.create' ,  // view name
-				[                       // datas given to the view
-					'previousFilled_accountTypeId' => $previousFilled_accountTypeId,
-					'previousFilled_name' => $previousFilled_name,
-					'previousFilled_reference' => $previousFilled_reference,
-					'previousFilled_balance' => $previousFilled_balance,
-					'previousFilled_date' => $previousFilled_date,
-					'previousFilled_description' => $previousFilled_description,
-					'previousFilled_iconId' => $previousFilled_iconId,
-					'previousFilled_icon_color_hexa' => $previousFilled_icon_color_hexa,
-					'accountTypeNames' => $accountTypeNames,
-					'accountTypeIds' => $accountTypeIds,
-					'iconNames' => $iconNames,
-					'iconIds' => $iconIds
-				]
+				'bankAccount.create' ,
+                compact(
+                    'previousFilled_accountTypeId'
+                    , 'previousFilled_name'
+                    , 'previousFilled_reference'
+                    , 'previousFilled_balance'
+                    , 'previousFilled_date'
+                    , 'previousFilled_description'
+                    , 'previousFilled_iconId'
+                    , 'previousFilled_icon_color_hexa'
+                    , 'accountTypeNames'
+                    , 'accountTypeIds'
+                    , 'iconNames'
+                    , 'iconIds'
+                )
 			);
 		}
 	}
@@ -113,8 +114,7 @@ class BankAccountController extends Controller
 			"bank_account_name" => "required|max:50",
 			"bank_account_reference" => "max:100",
 			"bank_account_description" => "",
-			// "bank_account_balance" => "required|integer|numeric|max:999999999999999999999999|min:-999999999999999999999999", // 24 digit
-			"bank_account_balance" => "required|integer|numeric|max:999999999999|min:-999999999999", // 12 digit
+			"bank_account_balance" => "required|integer|numeric|max_digits:24",
 			"bank_account_balance_date" => "required|date|before_or_equal:now",
 			"bank_account_icon_color_hexa" => "regex:/^\#[0-9abcdef]{6}$/i", //accept color hexa
 			"bank_account_icon_id" => "required|integer|numeric|min:1",

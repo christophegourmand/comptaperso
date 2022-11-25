@@ -112,5 +112,6 @@
     <section class="sm:px-6 lg:px-8 flex flex-row justify-center gap-3">
 		<x-button color="blue" text="Ajouter un compte bancaire" link="/bankAccounts/create"/>
 		<x-button color="orange" text="Ajouter une societe" link="/thirdparties/create"/>
+		<x-button color="teal" text="Ajouter une Categorie" link="/operationCategories/create"/>
 	</section>
 </x-app-layout>

@@ -43,16 +43,16 @@ class ThirdpartyController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-			"thirdparty_name" => "required|max:100",
-			"thirdparty_shortdescription" => "max:255",
-            "thirdparty_note" => "max:16000000"
+			"formfield_name" => "required|max:100",
+			"formfield_shortdescription" => "max:255",
+            "formfield_note" => "max:16000000"
 		]);
 
         $thirdparty = new Thirdparty();
         $thirdparty->user_id = Auth::user()->id;
-        $thirdparty->name = $request->thirdparty_name;
-        $thirdparty->shortdescription = $request->thirdparty_shortdescription;
-        $thirdparty->note = $request->thirdparty_note;
+        $thirdparty->name = $request->formfield_name;
+        $thirdparty->shortdescription = $request->formfield_shortdescription;
+        $thirdparty->note = $request->formfield_note;
         $thirdparty->save();
 
         return redirect('dashboard');

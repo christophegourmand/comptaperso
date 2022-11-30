@@ -57,20 +57,20 @@ class OperationCategoryController extends Controller
 	public function store(Request $request)
 	{
 
-		// $request->operation_category_is_visible =  $request->has("operation_category_is_visible") ? true : false;
-		// $request->operation_category_is_counted_in_balance =  $request->has("operation_category_is_counted_in_balance") ? true : false;
+		// $request->formfield_is_visible =  $request->has("formfield_is_visible") ? true : false;
+		// $request->formfield_is_counted_in_balance =  $request->has("formfield_is_counted_in_balance") ? true : false;
 
 
 		// dd($request); // DEBUG
 
 		$validatedData = $request->validate([
-			"operation_category_name" => "required|max:50",
-			"operation_category_is_visible" => "sometimes|accepted",
-			"operation_category_is_counted_in_balance" => "sometimes|accepted",
-			"operation_category_monthly_limit" => "min:0|max_digits:24",
-			"operation_category_annual_limit" => "min:0|max_digits:24",
-			"operation_category_icon_color_hexa" => "regex:/^\#[0-9abcdef]{6}$/i",
-			"operation_category_icon_id" => "required|integer|numeric|min:1",
+			"formfield_name" => "required|max:50",
+			"formfield_is_visible" => "sometimes|accepted",
+			"formfield_is_counted_in_balance" => "sometimes|accepted",
+			"formfield_monthly_limit" => "min:0|max_digits:24",
+			"formfield_annual_limit" => "min:0|max_digits:24",
+			"formfield_icon_color_hexa" => "regex:/^\#[0-9abcdef]{6}$/i",
+			"formfield_icon_id" => "required|integer|numeric|min:1",
 		]);
 
 		// dd($validatedData);
@@ -83,13 +83,13 @@ class OperationCategoryController extends Controller
 
 		// v1
         /*
-		$operationCategory->name = $request->operation_category_name;
-		$operationCategory->is_visible = $request->operation_category_is_visible;
-		$operationCategory->is_counted_in_balance = $request->operation_category_is_counted_in_balance;
-		$operationCategory->icon_id = $request->operation_category_icon_id;
-		$operationCategory->icon_color_hexa = $request->operation_category_icon_color_hexa;
-		$operationCategory->monthly_limit = $request->operation_category_monthly_limit;
-		$operationCategory->annual_limit = $request->operation_category_annual_limit;
+		$operationCategory->name = $request->formfield_name;
+		$operationCategory->is_visible = $request->formfield_is_visible;
+		$operationCategory->is_counted_in_balance = $request->formfield_is_counted_in_balance;
+		$operationCategory->icon_id = $request->formfield_icon_id;
+		$operationCategory->icon_color_hexa = $request->formfield_icon_color_hexa;
+		$operationCategory->monthly_limit = $request->formfield_monthly_limit;
+		$operationCategory->annual_limit = $request->formfield_annual_limit;
         */
 
 		// v2
@@ -104,7 +104,7 @@ class OperationCategoryController extends Controller
         foreach ($validatedData as $key => $value)
         {
             // remove prefix in key (coming from id="" of each input in form)
-            $key = str_replace('operation_category_' , '', $key);
+            $key = str_replace('formfield_' , '', $key);
             $operationCategory->$key = $value;
         }
 

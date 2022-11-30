@@ -46,12 +46,12 @@ class ThirdpartyCommentController extends Controller
         // });
 
         $validedData = $request->validate([
-            "thirdpartyComment_comment" => "required|max:16000000"
+            "formfield_comment" => "required|max:16000000"
         ]);
 
         $thirdpartyComment = new ThirdpartyComment();
         $thirdpartyComment->thirdparty_id = $thirdparty_id;
-        $thirdpartyComment->comment = $request->thirdpartyComment_comment;
+        $thirdpartyComment->comment = $request->formfield_comment;
         $thirdpartyComment->save();
 
         return redirect('thirdparties/'.$thirdparty_id) ;

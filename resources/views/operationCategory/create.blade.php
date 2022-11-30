@@ -23,16 +23,16 @@
 			{{-- user_id (auto) --}}
 			{{-- name --}}
 			<x-form.combo-input-text
-				id="operation_category_name"
+				id="formfield_name"
 				inlabel="Nom de la catégorie"
-				value="{{ old('operation_category_name') }}"
+				value="{{ old('formfield_name') }}"
 				comment=""
 				required
 			/>
 
 			{{-- is_visible (bool) --}}
 			<x-form.combo-input-checkbox
-				id="operation_category_is_visible"
+				id="formfield_is_visible"
 				inlabel="Opérations visibles"
 				comment="Décocher cette croix permet de masquer les opérations de cette catégorie."
                 value="1"
@@ -40,7 +40,7 @@
 
             {{-- is_counted_in_balance (bool) --}}
 			<x-form.combo-input-checkbox
-				id="operation_category_is_counted_in_balance"
+				id="formfield_is_counted_in_balance"
 				inlabel="Opérations comptabilisées"
 				comment="Les opérations de cette catégorie, indépendamment de leur visibilité peuvent être comptabilisée ou non dans l'évolution du solde."
                 value="1"
@@ -48,36 +48,36 @@
 
 			{{-- monthly_limit (double) --}}
             <x-form.combo-input-number
-                id="operation_category_monthly_limity"
+                id="formfield_monthly_limit"
                 inlabel="Budget de cette catégorie pour le mois (optionnel)"
-                value="{{ old('operation_category_monthly_limity') }}"
+                value="{{ old('formfield_monthly_limit') }}"
                 comment="Limite théorique à essayer de ne dépasser pour rester dans le budget."
             />
 
 			{{-- annual_limit (double) --}}
             <x-form.combo-input-number
-                id="operation_category_annual_limity"
+                id="formfield_annual_limit"
                 inlabel="Budget de cette catégorie pour l'année (optionnel)"
-                value="{{ old('operation_category_annual_limity') }}"
+                value="{{ old('formfield_annual_limit') }}"
                 comment="Limite théorique à essayer de ne dépasser pour rester dans le budget."
             />
 
 			{{-- icon_color_hexa --}}
 			<x-form.combo-input-color
-				id="operation_category_icon_color_hexa"
+				id="formfield_icon_color_hexa"
 				inlabel="Couleur de l'icône"
-				value="{{ old('operation_category_icon_color_hexa') }}"
+				value="{{ old('formfield_icon_color_hexa') }}"
 				comment=""
 			/>
 
 			{{-- icon_id --}}
-			<x-form.label for="operation_category_icon" class="mt-6 flex justify-between items-baseline">
+			<x-form.label for="formfield_icon" class="mt-6 flex justify-between items-baseline">
 				<span>Icône</span>
 			</x-form.label>
 
-			<fieldset id="operation_category_icon" class="flex flex-row flex-wrap justify-content-around gap-3">
+			<fieldset id="formfield_icon" class="flex flex-row flex-wrap justify-content-around gap-3">
 				@for ($i = 0; $i < count($iconNames); $i++)
-						<input class="google-icon-form-radio" type="radio" name="operation_category_icon_id" id="icon_id_{{$iconIds[$i]}}" value="{{$iconIds[$i]}}">
+						<input class="google-icon-form-radio" type="radio" name="formfield_icon_id" id="icon_id_{{$iconIds[$i]}}" value="{{$iconIds[$i]}}">
 						<label class="google-icon-form-label" for="icon_id_{{$iconIds[$i]}}">
 							<span class="material-symbols-outlined text-5xl ">{{$iconNames[$i]}}</span>
 						</label>
@@ -88,7 +88,7 @@
 			<div class="mt-5 text-center">
 				<x-form.submit
 					color="blue"
-					id="bank_account_submit"
+					id="formfield_submit"
 					value="Créer ce compte bancaire"
 				/>
 			</div>

@@ -23,7 +23,7 @@
 {{--
 EXAMPLE OF USAGE:
     <x-form.combo-input-text
-        id="bank_account_balance"
+        id="formfield_balance"
         inlabel="Solde initial 2"
         comment="test"                (optional)
         min="0" max="1000000"         (optional)

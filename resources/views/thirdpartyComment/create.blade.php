@@ -10,9 +10,9 @@
         <form method="POST" action="/thirdparties/{{$thirdparty->id}}/thirdpartyComments" class="w-full">
             @csrf
 			<x-form.combo-textarea
-				id="thirdpartyComment_comment"
+				id="formfield_comment"
 				inlabel="Commentaire"
-				value="{{ old('thirdpartyComment_comment') }}"
+				value="{{ old('formfield_comment') }}"
 				comment=""
 				required
 			/>
@@ -20,7 +20,7 @@
 			<div class="mt-5 text-center">
 				<x-form.submit
 					color="blue"
-					id="thirdparty_submit"
+					id="formfield_submit"
 					value="Créer ce commentaire"
 				/>
 			</div>

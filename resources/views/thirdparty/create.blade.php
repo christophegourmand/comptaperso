@@ -6,32 +6,32 @@
         <form method="POST" action="/thirdparties">
         @csrf
 			<x-form.combo-input-text
-				id="thirdparty_name"
+				id="formfield_name"
 				inlabel="Nom de ce Tiers"
-				value="{{ old('thirdparty_name') }}"
+				value="{{ old('formfield_name') }}"
 				comment=""
 				required
 			/>
 
             <x-form.combo-input-text
-				id="thirdparty_shortdescription"
+				id="formfield_shortdescription"
 				inlabel="Mini description"
-				value="{{ old('thirdparty_shortdescription') }}"
+				value="{{ old('formfield_shortdescription') }}"
 				comment="(limité à 255 caractères, plus d'infos peuvent être inscrites dans note)"
 				required
 			/>
 
             <x-form.combo-textarea
-				id="thirdparty_note"
+				id="formfield_note"
 				inlabel="Note"
-				value="{{ old('thirdparty_note') }}"
+				value="{{ old('formfield_note') }}"
 				comment=""
 			/>
 
 			<div class="mt-5 text-center">
 				<x-form.submit
 					color="blue"
-					id="thirdparty_submit"
+					id="formfield_submit"
 					value="Créer ce tiers"
 				/>
 			</div>

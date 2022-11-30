@@ -110,14 +110,14 @@ class BankAccountController extends Controller
 		* 'myproperty' => ['rule1:xxx','rule2','rule3:xxx']
 		*/
 		$validatedData = $request->validate([
-			"bank_account_type" => "required|integer|numeric|min:1",
-			"bank_account_name" => "required|max:50",
-			"bank_account_reference" => "max:100",
-			"bank_account_description" => "",
-			"bank_account_balance" => "required|integer|numeric|max_digits:24",
-			"bank_account_balance_date" => "required|date|before_or_equal:now",
-			"bank_account_icon_color_hexa" => "regex:/^\#[0-9abcdef]{6}$/i", //accept color hexa
-			"bank_account_icon_id" => "required|integer|numeric|min:1",
+			"formfield_type" => "required|integer|numeric|min:1",
+			"formfield_name" => "required|max:50",
+			"formfield_reference" => "max:100",
+			"formfield_description" => "",
+			"formfield_balance" => "required|integer|numeric|max_digits:24",
+			"formfield_balance_date" => "required|date|before_or_equal:now",
+			"formfield_icon_color_hexa" => "regex:/^\#[0-9abcdef]{6}$/i", //accept color hexa
+			"formfield_icon_id" => "required|integer|numeric|min:1",
 		]);
 
 		// TODO : wrap in a condition : IF ($validatedData)
@@ -125,14 +125,14 @@ class BankAccountController extends Controller
         //--- METHOD 2
         $newBankAccount = new BankAccount();
         $newBankAccount->user_id = Auth::user()->id;
-        $newBankAccount->account_type_id = $request->bank_account_type;
-        $newBankAccount->name = $request->bank_account_name;
-        $newBankAccount->reference = $request->bank_account_reference;
-        $newBankAccount->description = $request->bank_account_description;
-        $newBankAccount->balance = $request->bank_account_balance;
-        $newBankAccount->balance_date = $request->bank_account_balance_date;
-        $newBankAccount->icon_color_hexa = $request->bank_account_icon_color_hexa;
-        $newBankAccount->icon_id = $request->bank_account_icon_id;
+        $newBankAccount->account_type_id = $request->formfield_type;
+        $newBankAccount->name = $request->formfield_name;
+        $newBankAccount->reference = $request->formfield_reference;
+        $newBankAccount->description = $request->formfield_description;
+        $newBankAccount->balance = $request->formfield_balance;
+        $newBankAccount->balance_date = $request->formfield_balance_date;
+        $newBankAccount->icon_color_hexa = $request->formfield_icon_color_hexa;
+        $newBankAccount->icon_id = $request->formfield_icon_id;
 
         $newBankAccount->save();
 

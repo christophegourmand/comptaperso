@@ -24,7 +24,7 @@
 {{--
 EXAMPLE OF USAGE:
 	<x-form.combo-input-date
-		id="bank_account_balance_date"
+		id="formfield_balance_date"
 		inlabel="Date du solde initial"
 		comment="test"                  (optional)
 		min="2010-01-01"                (optional , here example with special date)

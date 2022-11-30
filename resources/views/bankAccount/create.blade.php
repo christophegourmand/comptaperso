@@ -20,7 +20,7 @@
             @csrf
 			<!-- account_type_id -->
 			<x-form.combo-select-options
-				id="bank_account_type"
+				id="formfield_type"
 				inlabel="Type de compte"
 				comment=""
 				:listToDisplay="$accountTypeNames"
@@ -31,27 +31,27 @@
 
 			<!-- name -->
 			<x-form.combo-input-text
-				id="bank_account_name"
+				id="formfield_name"
 				inlabel="Nom du compte"
-				value="{{ old('bank_account_name') }}"
+				value="{{ old('formfield_name') }}"
 				comment=""
 				required
 			/>
 
 			<!-- reference -->
 			<x-form.combo-input-text
-				id="bank_account_reference"
+				id="formfield_reference"
 				inlabel="Référence"
-				value="{{ old('bank_account_reference') }}"
+				value="{{ old('formfield_reference') }}"
 				comment="Indiquez ce qui vous aide à savoir de quel compte il s'agit, mais n'indiquez pas toutes les infos (inutile d'indiquer le code banque et code guichet, ou l'IBAN entier. Vous saurez tout autant de quel compte il s'agit en indiquant seulement le No de compte, voire seulement les chiffres de la fin)."
 			/>
 
 			<!-- description -->
 			<x-form.combo-textarea
 				inlabel="Decription"
-				id="bank_account_description"
-				name="bank_account_description"
-				value="{{ old('bank_account_description') }}"
+				id="formfield_description"
+				name="formfield_description"
+				value="{{ old('formfield_description') }}"
 				placeholder="Compte utilisé pour ..."
 				rows="3"
 				toto="bibi"
@@ -61,20 +61,20 @@
 
 			<!-- initial balance -->
 			<x-form.combo-input-number
-				id="bank_account_balance"
+				id="formfield_balance"
 				inlabel="Solde initial"
 				comment=""
 				min="0" max="1000000"
-                value="{{ old('bank_account_balance') }}"
+                value="{{ old('formfield_balance') }}"
 				required
 			/>
 
 			<!-- date of initial balance -->
 			<x-form.combo-input-date
-				id="bank_account_balance_date"
+				id="formfield_balance_date"
 				inlabel="Date du solde initial"
 				comment=""
-				value="{{ old('bank_account_balance_date') }}"
+				value="{{ old('formfield_balance_date') }}"
 				min="2010-01-01"
 				max="{{ date('Y-m-d') }}"
 				required
@@ -83,32 +83,32 @@
 
             {{--
             <x-form.combo-select-options
-				id="bank_account_icon"
+				id="formfield_icon"
 				inlabel="Icône"
 				comment="Si une icône vous manque, contactez-nous!"
 				:listToDisplay="$iconNames"
 				:listForValue="$iconIds"
-				valueOfPreviousSelectedElement="{{ old('bank_account_icon') }}"
+				valueOfPreviousSelectedElement="{{ old('formfield_icon') }}"
 			/>
             --}}
 
             <!-- icon color -->
             <x-form.combo-input-color
-				id="bank_account_icon_color_hexa"
+				id="formfield_icon_color_hexa"
 				inlabel="Couleur de l'icône"
-				value="{{ old('bank_account_icon_color_hexa') }}"
+				value="{{ old('formfield_icon_color_hexa') }}"
 				comment=""
 			/>
 
             <!-- icon -->
-            <x-form.label for="bank_account_icon" class="mt-6 flex justify-between items-baseline">
+            <x-form.label for="formfield_icon" class="mt-6 flex justify-between items-baseline">
                 <span>Icône</span>
                 {{-- <small class="italic text-cyan-600">required</small> --}}
             </x-form.label>
 
-            <fieldset id="bank_account_icon" class="flex flex-row flex-wrap justify-content-around gap-3">
+            <fieldset id="formfield_icon" class="flex flex-row flex-wrap justify-content-around gap-3">
                 @for ($i = 0; $i < count($iconNames); $i++)
-                        <input class="google-icon-form-radio" type="radio" name="bank_account_icon_id" id="icon_id_{{$iconIds[$i]}}" value="{{$iconIds[$i]}}">
+                        <input class="google-icon-form-radio" type="radio" name="formfield_icon_id" id="icon_id_{{$iconIds[$i]}}" value="{{$iconIds[$i]}}">
                         <label class="google-icon-form-label" for="icon_id_{{$iconIds[$i]}}">
                             <span class="material-symbols-outlined text-5xl ">{{$iconNames[$i]}}</span>
                         </label>
@@ -120,7 +120,7 @@
 			<div class="mt-5 text-center">
 				<x-form.submit
 					color="blue"
-					id="bank_account_submit"
+					id="formfield_submit"
 					value="Créer ce compte bancaire"
 				/>
 			</div>

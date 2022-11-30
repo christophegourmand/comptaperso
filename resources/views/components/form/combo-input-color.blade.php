@@ -23,7 +23,7 @@
 {{--
 EXAMPLE OF USAGE:
     <x-form.combo-input-number
-        id="bank_account_name"
+        id="formfield_name"
         inlabel="Nom du compte"
         :value"$previousValue"        (optional)
         comment="test"                (optional)

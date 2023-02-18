@@ -64,3 +64,26 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+
+## TO RUN THE PROJECT :
+
+KEEP 4 TERMINAL OPENED IN PARALLEL : (let's give them letters in case you learn by heart this anagram):
+
+- G: for git commands
+- S: to run laravel server.
+- N: for npm
+- L: for laravel commands to create models, controllers, etc...
+- R: (and eventually one to use the command to show your routes)
+
+G: Git commands ...
+
+S: Run Laravel's server `php artisan serve`
+
+N: use npm who will execute 'vite' (here is version 3.1.8) (which compile ressources (js, css, etc) in folder asset) : `npm run dev`
+
+L: For laraval commands , mostly starting by `php artisan` , `php artisan make:..... `
+
+R: `php artisan route:list`
+
+Then, as usual, open your website on `localhost:8000` , or `localhost:8000/projectName`

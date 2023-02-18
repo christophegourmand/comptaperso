@@ -19,7 +19,12 @@ class OperationCategoryController extends Controller
 	 */
 	public function index()
 	{
-		//
+        $userId = Auth::user()->id;
+        $operationCategories = OperationCategory::where('user_id' , $userId)->get();
+		return view(
+            'operationCategory.show-all',
+            compact('operationCategories')
+        );
 	}
 
 	/**
@@ -121,7 +126,10 @@ class OperationCategoryController extends Controller
 	 */
 	public function show(OperationCategory $operationCategory)
 	{
-		//
+		return view(
+            'operationCategory.show',
+            compact('operationCategory')
+        );
 	}
 
 	/**

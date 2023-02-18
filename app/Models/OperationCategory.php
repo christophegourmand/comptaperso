@@ -9,6 +9,10 @@ class OperationCategory extends Model
 {
     use HasFactory;
 
+    // =====================================
+    // SECTION : Relationships
+    // =====================================
+
     /**
     * Get the users having that role.
     */
@@ -20,6 +24,19 @@ class OperationCategory extends Model
     public function operations()
     {
         $this->hasMany(Operation::class);
+    }
+
+
+    // =====================================
+    // SECTION : other methods
+    // =====================================
+
+
+    public function getIconRef()
+    {
+        $icon = Icon::find($this->icon_id);
+
+        return $icon->google_icon_ref;
     }
 
 }

@@ -36,6 +36,7 @@
 				inlabel="Opérations visibles"
 				comment="Décocher cette croix permet de masquer les opérations de cette catégorie."
                 value="1"
+                checked
 			/>
 
             {{-- is_counted_in_balance (bool) --}}
@@ -44,6 +45,7 @@
 				inlabel="Opérations comptabilisées"
 				comment="Les opérations de cette catégorie, indépendamment de leur visibilité peuvent être comptabilisée ou non dans l'évolution du solde."
                 value="1"
+                checked
 			/>
 
 			{{-- monthly_limit (double) --}}
